@@ -18,3 +18,5 @@
   </li>
 </ul>
 <app-user [name]="rootName" (nameChanged)="onNameChanged($event)"></app-user>
+<button (click)="generateRandomNumber()">Generate Random Number</button>
+<p>{{ number }}</p>
