@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { random } from 'lodash';
+// import js library with type definition, need to install type definition separately
+// import { random } from 'lodash';
+
+// import js library without type definition
+import 'lodash';
+declare var _: any;
 
 @Component({
   selector: 'app-root',
@@ -16,6 +21,8 @@ export class AppComponent {
   }
 
   generateRandomNumber() {
-    this.number = random(1, 10);
+    // this.number = random(1, 10);
+    this.number = _.random(1, 10);
+
   }
 }

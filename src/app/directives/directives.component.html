@@ -1,5 +1,5 @@
 <p>
-  directives works!
+  Practice with directives
 </p>
 <ul class="list-group">
   <li
@@ -7,3 +7,4 @@
     *ngFor="let item of items; let i = index"
     [ngStyle]="{ backgroundColor: i % 2 === 0 ? 'green' : 'red'}">{{ item }}</li>
 </ul>
+<p *ngIf="true">Render me if *ngIf evaluates to true!</p>
