@@ -1,0 +1,9 @@
+<p>
+  directives works!
+</p>
+<ul class="list-group">
+  <li
+    class="list-group-item"
+    *ngFor="let item of items; let i = index"
+    [ngStyle]="{ backgroundColor: i % 2 === 0 ? 'green' : 'red'}">{{ item }}</li>
+</ul>
