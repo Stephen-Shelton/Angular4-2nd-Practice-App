@@ -6,17 +6,22 @@ import { TabsComponent } from './tabs/tabs.component';
 import { ItemComponent } from './item/item.component';
 import { ListComponent } from './list/list.component';
 
+import { StarWarsService } from './star-wars.service';
+import { LogService } from './log.service';
+import { CreateCharacterComponent } from './create-character/create-character.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     TabsComponent,
     ItemComponent,
-    ListComponent
+    ListComponent,
+    CreateCharacterComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [StarWarsService, LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
