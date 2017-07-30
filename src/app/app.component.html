@@ -1,7 +1,16 @@
 <div class="container">
   <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <app-header></app-header>
+      <!-- <app-create-character></app-create-character> -->
+    </div>
+  </div>
+  <hr>
+  <div class="row">
     <div class="col-xs-12">
-      <app-tabs></app-tabs>
+      <!-- This is where routes get loaded!  -->
+      <router-outlet></router-outlet>
+      <!-- <app-tabs></app-tabs> -->
     </div>
   </div>
 </div>
