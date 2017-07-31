@@ -7,11 +7,11 @@ import { LogService } from './log.service';
 
 @Injectable()
 export class StarWarsService {
-  private characters = [
-    { name: 'Luke Skywalker', side: 'light' },
-    { name: 'Darth Vader', side: 'dark' }
-  ];
-  // private characters: { name: string, side: string }[];
+  // private characters = [
+  //   { name: 'Luke Skywalker', side: 'light' },
+  //   { name: 'Darth Vader', side: 'dark' }
+  // ];
+  private characters: { name: string, side: string }[] = [];
 
   private logService: LogService;
 
@@ -47,7 +47,7 @@ export class StarWarsService {
   }
 
   getCharacters(chosenList) {
-    if (chosenList === 'all') {
+    if (chosenList === 'all' && this.characters) {
       return this.characters.slice(); // return copy of array
     }
     return this.characters.filter((char) => {
