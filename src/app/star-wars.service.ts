@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/map';
 
 import { LogService } from './log.service';
 
@@ -10,6 +11,7 @@ export class StarWarsService {
     { name: 'Luke Skywalker', side: 'light' },
     { name: 'Darth Vader', side: 'dark' }
   ];
+  // private characters: { name: string, side: string }[];
 
   private logService: LogService;
 
@@ -24,7 +26,24 @@ export class StarWarsService {
   }
 
   fetchCharacters() {
-
+    this.http.get('http://swapi.co/api/people')
+      .map((response: Response) => {
+        // const data = response.json();
+        // const extractedChars = data.results;
+        // const chars = extractedChars.map((char) => {
+        //   return { name: char.name, side: '' };
+        // });
+        // return chars;
+        // map below is native js, different from rxjs map used on observable above
+        return response.json().results.map((char) => {
+          return { name: char.name, side: '' };
+        });
+      })
+      .subscribe((data) => {
+        console.log(data);
+        this.characters = data;
+        this.charactersChanged.next();
+      });
   }
 
   getCharacters(chosenList) {
